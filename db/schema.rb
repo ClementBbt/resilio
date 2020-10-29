@@ -10,10 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_203404) do
+ActiveRecord::Schema.define(version: 2020_10_29_185314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bank_accounts", force: :cascade do |t|
+    t.string "name"
+    t.bigint "bank_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bank_id"], name: "index_bank_accounts_on_bank_id"
+  end
+
+  create_table "banks", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_banks_on_user_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "name"
+    t.date "start_date"
+    t.date "end_date"
+    t.float "price"
+    t.string "category"
+    t.string "periodicity"
+    t.boolean "commitment"
+    t.integer "notice"
+    t.bigint "user_id", null: false
+    t.text "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.text "title"
+    t.text "reference"
+    t.date "date"
+    t.float "amount"
+    t.bigint "subscription_id", null: false
+    t.bigint "bank_account_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bank_account_id"], name: "index_transactions_on_bank_account_id"
+    t.index ["subscription_id"], name: "index_transactions_on_subscription_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +68,20 @@ ActiveRecord::Schema.define(version: 2020_10_27_203404) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "civility"
+    t.string "first_name"
+    t.string "last_name"
+    t.text "address"
+    t.string "phone_number"
+    t.integer "zip_code"
+    t.string "city"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bank_accounts", "banks"
+  add_foreign_key "banks", "users"
+  add_foreign_key "subscriptions", "users"
+  add_foreign_key "transactions", "bank_accounts"
+  add_foreign_key "transactions", "subscriptions"
 end
