@@ -1,7 +1,7 @@
-<h1>Hello, <%= @subscription.user.first_name %>  </h1>
+<h1>Hello, <%= current_user.first_name %>  </h1>
 
 
-<%= @subscriptions.each do |subscription| %>
+<% @subscriptions.each do |subscription| %>
 <div class="card-product">
   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
   <div class="card-product-infos">
@@ -9,5 +9,5 @@
     <p> <%= subscription.status %>  </p>
   </div>
 </div>
-<%= end %>
+<% end %>
 
