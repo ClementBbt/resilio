@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_185314) do
+ActiveRecord::Schema.define(version: 2020_10_31_161332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,10 +52,10 @@ ActiveRecord::Schema.define(version: 2020_10_29_185314) do
     t.text "reference"
     t.date "date"
     t.float "amount"
-    t.bigint "subscription_id", null: false
     t.bigint "bank_account_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "subscription_id"
     t.index ["bank_account_id"], name: "index_transactions_on_bank_account_id"
     t.index ["subscription_id"], name: "index_transactions_on_subscription_id"
   end
@@ -83,5 +83,4 @@ ActiveRecord::Schema.define(version: 2020_10_29_185314) do
   add_foreign_key "banks", "users"
   add_foreign_key "subscriptions", "users"
   add_foreign_key "transactions", "bank_accounts"
-  add_foreign_key "transactions", "subscriptions"
 end
