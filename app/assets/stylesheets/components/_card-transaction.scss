@@ -1,0 +1,90 @@
+// BANNER A SUPPR PLUS TARD POUR FAIRE UN CONPONENT
+// POUR TOUTES LES BANNERS DE L'APP
+
+.banner-transaction h1 {
+  margin-bottom: 0px;
+  font-size: 36px;
+}
+
+.banner-transaction {
+  background-color: #87B5BF;
+  color: #FFFFFF;
+  padding: 24px;
+  margin-bottom: 6px;
+}
+
+// CARD
+
+.card-transaction-title h2 {
+  margin-bottom: 0px;
+  font-size: 20px;
+}
+
+.card-transaction-title {
+  background-color: #4B8C9A;
+  color: #FFFFFF;
+  padding: 12px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-top: 20px;
+}
+
+.card-transaction-info {
+  background-color: #FFFFFF;
+  color: #3D3D3D;
+  padding: 12px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.transaction-info p {
+  margin-bottom: 1px;
+}
+
+.transaction-info {
+  padding: 6px;
+  // margin-border-top: 6px;
+  border-bottom:0.2px solid #EFEFEF;
+}
+
+.transaction-info:last-child {
+  border-bottom:0px;
+}
+
+// BUTTON SUR card-transaction-title
+
+.card-transaction-title {
+ position: relative;
+}
+
+.container-button-transaction {
+ position: absolute;
+ bottom: -25px;
+ right :20px;
+}
+
+// BUTTON
+.container-button-transaction {
+  display: flex;
+}
+
+.button-transaction {
+  margin: 6px;
+}
+
+.button-circle {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  display:table-cell;
+  vertical-align: middle;
+  border-radius: 50%;
+  background-color: #87B5BF;
+  color: #FFFFFF;
+}
+
+.button-circle:hover {
+  background-color: #4B8C9A;
+  text-decoration:none;
+  color: #FFFFFF;
+}
