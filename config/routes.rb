@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :subscriptions, only: [ :new, :create, :index, :show ] do
-    resources :transactions, only: [ :index ]
+    member do
+      # route pour les transactions d'une subscription
+    end
   end
 
+  resources :transactions, only: [ :index ]
 end
