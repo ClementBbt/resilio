@@ -3,17 +3,21 @@
   <h1>Mes paiements récurrents</h1>
 </div>
 
-<!-- CARD TRANSACTION -->
-<div class="container">
+<!-- CARD TRANSACTION NEUTRE-->
+<!-- <div class="container">
   <div class="container-transaction">
     <div class="card-transaction-title">
       <h2>Nom de la transaction</h2>
       <div class="container-button-transaction">
         <div class="button-transaction">
-          <a href="#" class="button-circle">+</a>
+          <a href="#" class="button-circle">
+            <i class="fas fa-thumbtack"></i>
+          </a>
         </div>
         <div class="button-transaction">
-          <a href="#" class="button-circle">-</a>
+          <a href="#" class="button-circle">
+            <i class="fas fa-trash"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -33,7 +37,44 @@
       </div>
     </div>
   </div>
+</div> -->
 
 
+<!-- CARD TRANSACTION -->
+<div class="container">
+  <div class="container-transaction">
+    <% @transactions.each do |name, transactions| %>
+      <% if transactions.size > 1 %>
 
+        <div class="card-transaction-title">
+          <h2><%= name %></h2>
+          <div class="container-button-transaction">
+            <div class="button-transaction">
+              <a href="#" class="button-circle">
+                <i class="fas fa-thumbtack"></i>
+              </a>
+            </div>
+            <div class="button-transaction">
+              <a href="#" class="button-circle">
+                <i class="fas fa-trash"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-transaction-info">
+          <% transactions.each do |transaction| %>
+            <div class="transaction-info">
+
+              <p><%= transaction.date %> - <%= transaction.reference %></p>
+              <p><%= transaction.amount %></p>
+
+            </div>
+          <% end %>
+        </div>
+
+      <% end %>
+    <% end %>
 </div>
+</div>
+
