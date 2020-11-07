@@ -29,11 +29,13 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-product-infos {
   height:100%;
+  width: 100%;
   padding: 16px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 
