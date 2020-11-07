@@ -5,11 +5,13 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin: 5px;
+  display: flex;
 }
 
 .card-product img {
   height: 100%;
-  width: 120px;
+  width: 100px;
   object-fit: cover;
 }
 
@@ -28,5 +30,11 @@
 }
 
 .card-product .card-product-infos {
+  height:100%;
   padding: 16px;
+  display: flex;
+  align-items: center;
 }
+
+
+
