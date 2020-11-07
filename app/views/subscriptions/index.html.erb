@@ -1,13 +1,23 @@
-<h1>Hello, <%= current_user.first_name %>  </h1>
+<h1 class="p-left-5 p-top-5">Bonjour, <%= current_user.first_name %>  </h1>
 
+<p class="p-left-5"> Tu as <%= Subscription.count %> abonnements en cours </p>
 
 <% @subscriptions.each do |subscription| %>
 <div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2> <%= subscription.name %> </h2>
-    <p> <%= subscription.status %>  </p>
+  <div>
+    <%= image_tag 'banque_assurance.png' %>
   </div>
+  <div class="card-product-infos">
+    <div>
+      <h2> <%= subscription.name %> </h2>
+      <p> <%= subscription.status %>  </p>
+      <p> <i class="fab fa-algolia"></i> <%= subscription.limit_date %>  </p>
+    </div>
+       <div>
+        <%= subscription.price %>
+      </div>
+  </div>
+
 </div>
 <% end %>
 

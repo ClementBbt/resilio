@@ -139,6 +139,7 @@ edf.save!
 amex = Subscription.new(
 name: "American Express",
 start_date: "2020-02-02",
+end_date: "2021-02-02",
 price: 150,
 category: "Services financiers",
 periodicity: "annuel",
