@@ -1,0 +1,21 @@
+<div class="container center_div">
+
+  <%= simple_form_for @subscription do |f| %>
+    <!-- REVOIR POUR CREER BOUTON TRUE SUR VISIBLE -->
+    <%= f.input :visible, as: :hidden, input_html:{value: true}%>
+
+    <%= f.input :name, label: "Votre abonnement", input_html:{value: params[:transaction]}, readonly:true %>
+    <%= f.input :commitment, as: :radio_buttons, label: "Êtes-vous engagés ?" %>
+
+    <!-- YES or NO -->
+    <!-- IF YES -->
+    <%= f.input :start_date, label: "Date de début de votre abonnement", required: true, input_html: {class: "datepicker"} %>
+    <%= f.input :end_date, label: "Date de fin de votre abonnement" %>
+    <%= f.input :price, label: "Prix" %>
+    <%= f.input :periodicity, label: "Périodicité", collection: ['Quotidien','Hebdomadaire','Bimensuel','Mensuel','Trimestriel','Bisannuel','Annuel'] %>
+    <%= f.submit class: "myButton w-100", label: "Validez" %>
+  <% end %>
+
+</div>
+
+

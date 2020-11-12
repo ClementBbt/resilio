@@ -11,8 +11,10 @@ class SubscriptionsController < ApplicationController
   def create
     @subscription = Subscription.new(subscription_params)
     @subscription.user = current_user
-    if @subscription.save
+    if @subscription.save && @subscription.visible
       redirect_to subscriptions_path
+    elsif @subscription.save
+      redirect_to transactions_path, notice:"Transaction supprimée"
     else
       render 'new'
     end
@@ -25,7 +27,7 @@ class SubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.require(:subscription).permit(:name, :category, :start_date, :end_date, :price, :periodicity, :commitment, :notice, :status)
+    params.require(:subscription).permit(:visible, :name, :category, :start_date, :end_date, :price, :periodicity, :commitment, :notice, :status)
   end
 
 end

@@ -3,43 +3,6 @@
   <h1>Mes paiements récurrents</h1>
 </div>
 
-<!-- CARD TRANSACTION NEUTRE-->
-<!-- <div class="container">
-  <div class="container-transaction">
-    <div class="card-transaction-title">
-      <h2>Nom de la transaction</h2>
-      <div class="container-button-transaction">
-        <div class="button-transaction">
-          <a href="#" class="button-circle">
-            <i class="fas fa-thumbtack"></i>
-          </a>
-        </div>
-        <div class="button-transaction">
-          <a href="#" class="button-circle">
-            <i class="fas fa-trash"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card-transaction-info">
-      <div class="transaction-info">
-        <p>transaction ref</p>
-        <p>prix €</p>
-      </div>
-      <div class="transaction-info">
-        <p>transaction ref</p>
-        <p>prix €</p>
-      </div>
-      <div class="transaction-info">
-        <p>transaction ref</p>
-        <p>prix €</p>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
 <!-- CARD TRANSACTION -->
 <div class="container">
   <div class="container-transaction">
@@ -50,14 +13,18 @@
           <h2><%= name %></h2>
           <div class="container-button-transaction">
             <div class="button-transaction">
-              <a href="#" class="button-circle">
-                <i class="fas fa-thumbtack"></i>
-              </a>
+              <%= link_to new_subscription_path(transaction: name), class:"button-circle" do %>
+              <i class="fas fa-thumbtack"></i>
+              <% end %>
             </div>
             <div class="button-transaction">
-              <a href="#" class="button-circle">
-                <i class="fas fa-trash"></i>
-              </a>
+                <%= simple_form_for Subscription.new do |f| %>
+                  <%= f.input :visible, as: :hidden, input_html:{value: false}%>
+                  <%= f.input :name, as: :hidden, input_html:{value: name} %>
+                  <%= button_tag type: "submit", class:"button-circle" do %>
+                      <i class="fas fa-trash"></i>
+                  <% end %>
+                <% end %>
             </div>
           </div>
         </div>
@@ -67,7 +34,7 @@
             <div class="transaction-info">
 
               <p><%= transaction.date %> - <%= transaction.reference %></p>
-              <p><%= transaction.amount %></p>
+              <p class="transaction-price"><%= transaction.amount %>€</p>
 
             </div>
           <% end %>
