@@ -32,6 +32,26 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.find(params[:id])
   end
 
+  def resiliation
+    @subscription = Subscription.find(params[:id])
+    locals = {
+      current_user: current_user,
+      subscription: @subscription
+    }
+    # pdf_html = ActionController::Base.new.render_to_string(template: 'subscriptions/resiliation.html.erb', layout: 'pdf.html', locals: locals)
+    # pdf = WickedPdf.new.pdf_from_string(pdf_html)
+    # send_data pdf, filename: "resiliation_#{@subscription.id}.pdf"
+    respond_to do |format|
+      format.html
+      format.pdf do
+          render pdf: "resiliation_#{@subscription.id}",
+          template: "subscriptions/resiliation.html.erb",
+          layout: "pdf.html",
+          locals: locals
+        end
+    end
+  end
+
   private
 
   def subscription_params
