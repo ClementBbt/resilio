@@ -2,15 +2,15 @@
   <div class="banner-subscription">
     <% case @subscription.category %>
       <% when 'Energie'%>
-        <%= image_tag 'energie_banner.jpeg' %>
+        <%= image_tag 'energie_banner.jpg' %>
       <% when 'Loisirs'%>
-        <%= image_tag 'loisirs_banner.jpeg' %>
+        <%= image_tag 'loisirs_banner.jpg' %>
       <% when 'Telecom'%>
-        <%= image_tag 'telecom_banner.jpeg' %>
+        <%= image_tag 'telecom_banner.jpg' %>
       <% when 'Streaming' %>
-        <%= image_tag 'stream_banner.jpeg' %>
+        <%= image_tag 'stream_banner.jpg' %>
       <% when 'Divers'%>
-        <%= image_tag 'divers_banner.jpeg' %>
+        <%= image_tag 'divers_banner.jpg' %>
     <% end %>
     <h1> <%= @subscription.name %></h1>
     <div class=container>
