@@ -14,6 +14,7 @@ body {
 
 #typed-two {
   font-weight: lighter;
+  line-height: 30px;
 }
 
 #typed-two > span {
@@ -29,12 +30,42 @@ body {
 
 .home-box {
   background-color: #fff;
-  width: 100px;
-  margin: 10px;
+  height: 100px;
+  margin-bottom: 20px;
   padding: 10px;
   text-align: center;
+  transform: scale(0);
+  animation-name: appear;
+  animation-duration: .5s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(.35,.36,1,1.79);
 }
 
 .home-box p {
   margin: 0 !important;
+}
+
+#box-one {
+  animation-delay: 6s;
+}
+
+#box-two {
+  animation-delay: 6.25s;
+}
+
+#box-three {
+  animation-delay: 6.5s;
+}
+
+#box-four {
+  animation-delay: 6.75s;
+}
+@keyframes appear {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
 }

@@ -1,22 +1,26 @@
 import Typed from 'typed.js';
 
 const loadDynamicBannerText = () => {
-  new Typed('#typed', {
-    stringsElement: '#typed-strings',
-    typeSpeed: 20,
-    loop: false,
-    showCursor: false
-  });
+  if (document.querySelector('#typed')) {
+    new Typed('#typed', {
+      stringsElement: '#typed-strings',
+      typeSpeed: 20,
+      loop: false,
+      showCursor: false
+    });
+  }
 }
 
 const loadDynamicBannerTextTwo = () => {
-  new Typed('#typed-two', {
-    startDelay: 2000,
-    stringsElement: '#typed-strings-two',
-    typeSpeed: 20,
-    loop: false,
-    showCursor: false
-  });
+  if (document.querySelector('#typed-two')) {
+    new Typed('#typed-two', {
+      startDelay: 2000,
+      stringsElement: '#typed-strings-two',
+      typeSpeed: 20,
+      loop: false,
+      showCursor: false
+    });
+  }
 }
 
 // const loadDynamicBannerTextTwo = () => {
