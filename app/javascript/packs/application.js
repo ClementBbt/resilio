@@ -25,6 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initSweetalert } from '../plugins/init_sweetalert';
+import "../plugins/flatpickr"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
