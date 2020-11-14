@@ -1,0 +1,2 @@
+class Resiliation < ApplicationRecord
+end
