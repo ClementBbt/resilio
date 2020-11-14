@@ -1,10 +1,10 @@
 import Typed from 'typed.js';
 
 const loadDynamicBannerText = () => {
-  if (document.querySelector('#typed')) {
+  if (document.querySelector('.animation-typed-js-1')) {
     new Typed('#typed', {
       stringsElement: '#typed-strings',
-      typeSpeed: 20,
+      typeSpeed: 5,
       loop: false,
       showCursor: false
     });
@@ -12,11 +12,11 @@ const loadDynamicBannerText = () => {
 }
 
 const loadDynamicBannerTextTwo = () => {
-  if (document.querySelector('#typed-two')) {
+  if (document.querySelector('.animation-typed-js-2')) {
     new Typed('#typed-two', {
-      startDelay: 2000,
+      startDelay: 1000,
       stringsElement: '#typed-strings-two',
-      typeSpeed: 20,
+      typeSpeed: 15,
       loop: false,
       showCursor: false
     });
