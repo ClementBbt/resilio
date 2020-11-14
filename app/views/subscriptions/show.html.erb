@@ -2,15 +2,15 @@
   <div class="banner-subscription">
     <% case @subscription.category %>
       <% when 'Energie'%>
-        <%= image_tag 'loisirs_banner.jpeg' %>
+        <%= image_tag 'energie_banner.jpeg' %>
       <% when 'Loisirs'%>
         <%= image_tag 'loisirs_banner.jpeg' %>
       <% when 'Telecom'%>
-        <%= image_tag 'loisirs_banner.jpeg' %>
+        <%= image_tag 'telecom_banner.jpeg' %>
       <% when 'Streaming' %>
-        <%= image_tag 'loisirs_banner.jpeg' %>
+        <%= image_tag 'streaming_banner.jpeg' %>
       <% when 'Divers'%>
-        <%= image_tag 'loisirs_banner.jpeg' %>
+        <%= image_tag 'divers_banner.jpeg' %>
     <% end %>
     <h1> <%= @subscription.name %></h1>
     <div class=container>
@@ -38,30 +38,34 @@
   <div class="infos">
     <p> <%= current_user.first_name %>, voici le détail de votre souscription : <%= @subscription.name %></p>
     <div class="price">
-      <%= @subscription.price %> € / <%= @subscription.periodicity = "mensuel"  ? "Mois" : "An" %>
+      <%= @subscription.price %> € / <%= @subscription.periodicity == "mensuel"  ? "Mois" : "An" %>
     </div>
-    <div class="d-flex justify-content-between mt-2">
+    <div class="card-show">
       <div>
-        <%= @subscription.status == "en cours" ? "statut" : "pause" %>
+        Statut
       </div>
       <div>
         <%= @subscription.status %>
       </div>
     </div>
-    <div class="d-flex justify-content-between mt-2">
+    <div class="card-show">
       <div>
         <i class="far fa-calendar-times"></i>
       </div>
       <div>
-        du <%= @subscription.start_date %> au <%= @subscription.end_date %>
+        <% if @subscription.end_date %>
+          <p>du <%= @subscription.start_date %> au <%= @subscription.end_date %></p>
+        <% else %>
+          <p>Commencé le : <%= @subscription.start_date %> </p>
+        <% end %>
       </div>
     </div>
-    <div class="d-flex justify-content-between mt-2">
+    <div class="card-show">
       <div>
-        <i class="fal fa-traffic-light-stop"></i>
+         Date limite courrier :
       </div>
       <div>
-        Date limite pour mettre fin à votre abonnement : <%= @subscription.limit_date %>
+        <%= @subscription.limit_date %>
       </div>
     </div>
     <div class="mt-5">
