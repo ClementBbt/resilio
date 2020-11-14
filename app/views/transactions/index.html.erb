@@ -12,20 +12,25 @@
         <div class="card-transaction-title">
           <h2><%= name %></h2>
           <div class="container-button-transaction">
-            <div class="button-transaction">
+
+            <div class="button-transaction pin">
               <%= link_to new_subscription_path(transaction: name), class:"button-circle" do %>
               <i class="fas fa-thumbtack"></i>
               <% end %>
             </div>
-            <div class="button-transaction">
+
+            <div class="button-transaction trash">
                 <%= simple_form_for Subscription.new do |f| %>
                   <%= f.input :visible, as: :hidden, input_html:{value: false}%>
                   <%= f.input :name, as: :hidden, input_html:{value: name} %>
-                  <%= button_tag type: "submit", class:"button-circle" do %>
-                      <i class="fas fa-trash"></i>
-                  <% end %>
+
+                  <button id="sweet-alert2" class= "button-circle" name="button"><i class="fas fa-trash"></i></button>
+                  <%= f.button :submit, class: "d-none", id: "delete-link"  %>
+
+
                 <% end %>
             </div>
+
           </div>
         </div>
 
