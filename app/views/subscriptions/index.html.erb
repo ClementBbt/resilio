@@ -1,34 +1,38 @@
-<h1 class="p-left-5 p-top-5"><%= current_user.first_name %>,  </h1>
+<div class="banner-product">
+  <h1>Mes abonnements</h1>
+</div>
 
-<p class="p-left-5"> Tu as <%= Subscription.count %> abonnements en cours </p>
+<p class="p-left-5 pt-2"> <%= current_user.first_name %>, Tu as <%= Subscription.count %> abonnements en cours </p>
 
 <% @subscriptions.each do |subscription| %>
-  <div class="card-product">
-    <div>
-      <% case subscription.category %>
-      <% when 'Energie'%>
-        <%= image_tag 'energie.png' %>
-      <% when 'Loisirs'%>
-        <%= image_tag 'loisirs.png' %>
-      <% when 'Telecom'%>
-        <%= image_tag 'telecom.png' %>
-      <% when 'Streaming' %>
-        <%= image_tag 'streaming.png' %>
-      <% when 'Divers'%>
-        <%= image_tag 'divers.png' %>
-      <% end %>
-    </div>
-    <div class="card-product-infos">
+  <%= link_to subscription_path(subscription), class: "text-decoration-none text-reset" do  %>
+    <div class="card-product">
       <div>
-        <h2> <%= subscription.name %> </h2>
-        <p> <%= subscription.status %>  </p>
-        <p> <i class="fab fa-algolia"></i> <%= subscription.limit_date %>  </p>
+        <% case subscription.category %>
+        <% when 'Energie'%>
+          <%= image_tag 'energie.png' %>
+        <% when 'Loisirs'%>
+          <%= image_tag 'loisirs.png' %>
+        <% when 'Telecom'%>
+          <%= image_tag 'telecom.png' %>
+        <% when 'Streaming' %>
+          <%= image_tag 'streaming.png' %>
+        <% when 'Divers'%>
+          <%= image_tag 'divers.png' %>
+        <% end %>
       </div>
-      <div>
-        <%= subscription.price %>
+      <div class="card-product-infos">
+        <div>
+          <h2> <%= subscription.name %> </h2>
+          <p> <%= subscription.status %>  </p>
+          <p> <i class="fab fa-algolia"></i> <%= subscription.limit_date %>  </p>
+        </div>
+        <div class="product-price">
+          <%= subscription.price %>€
+          <%= subscription.periodicity == "mensuel"  ? "mois" : "an" %>
+        </div>
       </div>
     </div>
-
-  </div>
+  <% end %>
 <% end %>
 
