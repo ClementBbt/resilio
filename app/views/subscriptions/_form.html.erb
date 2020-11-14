@@ -5,15 +5,18 @@
     <%= f.input :visible, as: :hidden, input_html:{value: true}%>
 
     <%= f.input :name, label: "Votre abonnement", input_html:{value: params[:transaction]}, readonly:true %>
-    <%= f.input :commitment, as: :radio_buttons, label: "Êtes-vous engagés ?" %>
-
     <!-- YES or NO -->
-    <!-- IF YES -->
-    <%= f.input :start_date, label: "Date de début de votre abonnement", required: true, input_html: {class: "datepicker"} %>
-    <%= f.input :end_date, label: "Date de fin de votre abonnement" %>
-    <%= f.input :price, label: "Prix" %>
-    <%= f.input :periodicity, label: "Périodicité", collection: ['Quotidien','Hebdomadaire','Bimensuel','Mensuel','Trimestriel','Bisannuel','Annuel'] %>
-    <%= f.submit class: "myButton w-100", label: "Validez" %>
+    <%= f.input :commitment, input_html: {id: "yes-or-no"}, as: :radio_buttons, collection: ['Oui','Non'], label: "Êtes-vous engagés ?" %>
+
+      <!-- IF YES -->
+    <div id: :if-yes>
+      <%= f.input :start_date, label: "Date de début de votre abonnement", required: true, input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, label: "Date de fin de votre abonnement" %>
+      <%= f.input :price, label: "Prix" %>
+      <%= f.input :periodicity, label: "Périodicité", collection: ['Quotidien','Hebdomadaire','Bimensuel','Mensuel','Trimestriel','Bisannuel','Annuel'] %>
+    </div>
+
+    <%= f.submit "Créer mon abonnement", class: "myButton w-100"  %>
   <% end %>
 
 </div>

@@ -3,7 +3,7 @@
 
 .banner-transaction h1 {
   margin-bottom: 0px;
-  font-size: 36px;
+  font-size: 20px;
 }
 
 .banner-transaction {
@@ -56,6 +56,10 @@
   font-weight: bold;
 }
 
+.date-and-ref {
+  display: flex;
+}
+
 // BUTTON SUR card-transaction-title
 
 .card-transaction-title {
@@ -65,7 +69,7 @@
 .container-button-transaction {
  position: absolute;
  bottom: -25px;
- right :20px;
+ right :10px;
 }
 
 // BUTTON
@@ -77,6 +81,14 @@
   margin: 6px;
 }
 
+.pin {
+  padding-top: 24px;
+}
+
+.trash {
+  padding-top: 8px;
+}
+
 .button-circle {
   width: 40px;
   height: 40px;
@@ -86,11 +98,12 @@
   border-radius: 50%;
   background-color: #87B5BF;
   color: #FFFFFF;
+  border: none;
 }
 
 .button-circle:hover {
   background-color: #4B8C9A;
-  text-decoration:none;
+  text-decoration:none!important;
   color: #FFFFFF;
 }
 

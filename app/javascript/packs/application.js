@@ -24,6 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -31,8 +32,13 @@ import { loadDynamicBannerText, loadDynamicBannerTextTwo } from '../components/b
 
 
 document.addEventListener('turbolinks:load', () => {
+
+  // Call your functions here, e.g:
+  initSweetalert();
+
   // Call your JS functions here
   // [...]
   loadDynamicBannerText();
   loadDynamicBannerTextTwo();
+
 });
