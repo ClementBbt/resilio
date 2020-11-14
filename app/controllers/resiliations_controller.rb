@@ -26,4 +26,4 @@ class ResiliationsController < ApplicationController
             ::Resiliation.all.includes(:invoice_items)
         end
 end
-end
+
