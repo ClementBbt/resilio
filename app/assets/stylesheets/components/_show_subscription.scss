@@ -39,6 +39,20 @@
 }
 
 .price {
-  font-size: 24px;
+  font-size: 40px;
   color: #4B8C9A;
+  margin-bottom: 20px;
+}
+
+.card-show {
+  overflow: hidden;
+  height: 60px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  display: flex;
+  border-radius: 10px;
+  justify-content: space-between;
+  padding: 5px;
+  margin-bottom: 6px;
 }

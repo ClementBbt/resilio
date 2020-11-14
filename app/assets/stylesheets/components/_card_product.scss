@@ -6,6 +6,7 @@
   align-items: center;
   margin: 5px;
   display: flex;
+  border-radius: 10px;
 }
 
 .card-product img {
@@ -37,5 +38,19 @@
   justify-content: space-between;
 }
 
+.banner-product h1 {
+  margin-bottom: 0px;
+  font-size: 36px;
+}
 
+.banner-product {
+  background-color: #87B5BF;
+  color: #FFFFFF;
+  padding: 24px;
+  margin-bottom: 6px;
+}
+
+.product-price {
+  font-size: 8px;
+}
 
