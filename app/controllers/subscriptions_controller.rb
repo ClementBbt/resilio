@@ -11,6 +11,10 @@ class SubscriptionsController < ApplicationController
   def create
     @subscription = Subscription.new(subscription_params)
     @subscription.user = current_user
+    transactions = Transaction.where(title: @subscription.name)
+    transactions.each do |transaction|
+      transaction.update(subscription: @subscription)
+    end
     if @subscription.save && @subscription.visible
       redirect_to subscriptions_path
     elsif @subscription.save

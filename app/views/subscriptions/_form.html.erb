@@ -10,15 +10,17 @@
 
       <!-- IF YES -->
     <div id: :if-yes>
-      <%= f.input :start_date, label: "Date de début de votre abonnement", required: true, input_html: {class: "datepicker"} %>
-      <%= f.input :end_date, label: "Date de fin de votre abonnement" %>
+      <div class="form-wrapper" >
+        <%= f.input :start_date, label: "Date de début de votre abonnement", as: :string, required: true, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date, label: "Date de fin de votre abonnement", as: :string, required: true, input_html: {class: "datepicker"} %>
+      </div>
       <%= f.input :price, label: "Prix" %>
-      <%= f.input :periodicity, label: "Périodicité", collection: ['Quotidien','Hebdomadaire','Bimensuel','Mensuel','Trimestriel','Bisannuel','Annuel'] %>
+      <%= f.input :periodicity, label: "Périodicité", collection: ['Mensuel','Annuel'] %>
     </div>
 
-    <%= f.submit "Créer mon abonnement", class: "myButton w-100"  %>
+
+    <%= f.submit "Créer mon abonnement", class: "myButton w-100 button-new-subscription"  %>
   <% end %>
 
 </div>
-
 
