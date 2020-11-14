@@ -1,7 +1,11 @@
 class SubscriptionsController < ApplicationController
 
   def index
-    @subscriptions = Subscription.all
+    if params[:search] == "expired"
+      @subscriptions = Subscription.where(status: "expire bientôt")
+    else
+      @subscriptions = Subscription.all
+    end
   end
 
   def new

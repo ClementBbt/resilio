@@ -5,6 +5,13 @@ body {
   text-align: center;
 }
 
+#typed-strings {
+  font-size: 32px;
+  color: #4B8C9A;
+  display: block;
+  margin-bottom: 5px;
+}
+
 #typed {
   font-size: 32px;
   color: #4B8C9A;
@@ -13,11 +20,25 @@ body {
 }
 
 #typed-two {
-  font-weight: lighter;
+  font-weight: 200;
+  color: #27323F;
   line-height: 30px;
 }
 
 #typed-two > span {
+  font-size: 18px;
+  font-weight: bolder;
+  color: #7BBDCC;
+}
+
+
+#typed-strings-two {
+  font-weight: 200;
+  color: #27323F;
+  line-height: 30px;
+}
+
+#typed-strings-two > span {
   font-size: 18px;
   font-weight: bolder;
   color: #7BBDCC;
@@ -30,10 +51,15 @@ body {
 
 .home-box {
   background-color: #fff;
+  border-radius: 8px;
   height: 100px;
   margin-bottom: 20px;
   padding: 10px;
   text-align: center;
+  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2);
+}
+
+.animation {
   transform: scale(0);
   animation-name: appear;
   animation-duration: .5s;
@@ -43,23 +69,35 @@ body {
 
 .home-box p {
   margin: 0 !important;
+  font-weight: 300;
+  color: #4B8C9A;
 }
 
 #box-one {
-  animation-delay: 6s;
+  animation-delay: 4.5s;
+  margin-left: 6px;
 }
 
 #box-two {
-  animation-delay: 6.25s;
+  animation-delay: 4.75s;
+  margin-right: 6px;
 }
 
 #box-three {
-  animation-delay: 6.5s;
+  animation-delay: 5s;
+  margin-left: 6px;
 }
 
 #box-four {
-  animation-delay: 6.75s;
+  animation-delay: 5.25s;
+  margin-right: 6px;
 }
+
+.home-link a:hover {
+  text-decoration: none;
+}
+
+
 @keyframes appear {
   from {
     transform: scale(0);

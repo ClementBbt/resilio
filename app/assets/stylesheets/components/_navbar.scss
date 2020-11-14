@@ -22,8 +22,19 @@
   padding-top: 10px;
 }
 
+.dropdown-menu {
+  background-color: #C8DFE4;
+  border: none;
+}
+
+.dropdown-item {
+  color: #fff;
+  font-weight: 300;
+  font-size: 12px;
+  padding: 0.25rem 0.5rem;
+}
 
 div.dropdown-menu.dropdown-menu-right.show {
-  top: -8px !important;
+  top: 3px !important;
   left: 12px !important;
 }

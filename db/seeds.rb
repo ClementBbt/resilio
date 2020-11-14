@@ -52,7 +52,7 @@ camille.save!
 # file = URI.open('https://avatars3.githubusercontent.com/u/63556423?s=460&u=fd79c26bca3aead73759c01c5f950bedb9e9b3a8&v=4')
 clement = User.new(
 civility: "Monsieur",
-first_name: "Clement",
+first_name: "Clément",
 last_name: "Bibolet",
 email: "clement@test.com",
 password: "test321",
@@ -145,7 +145,7 @@ category: "Divers",
 periodicity: "annuel",
 commitment: true,
 notice: 30,
-status: "en cours",
+status: "expire bientôt",
 user: clement
 )
 amex.save!
