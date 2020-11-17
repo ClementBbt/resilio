@@ -15,7 +15,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container-custom">
+      <%= yield %>
+    </div>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
   </body>
