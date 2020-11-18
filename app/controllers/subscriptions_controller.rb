@@ -10,6 +10,7 @@ class SubscriptionsController < ApplicationController
 
   def new
     @subscription = Subscription.new
+    @transaction = Transaction.find(params[:transaction_id])
   end
 
   def create
