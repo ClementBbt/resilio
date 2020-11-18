@@ -7,47 +7,52 @@
 <div class="container">
   <div class="container-transaction">
       <!-- si @transactions est vide alors message -->
-    <% @transactions.each do |name, transactions| %>
-      <% if transactions.size > 1 %>
+      <% if @transactions %>
+        coucou
+        <% @transactions.each do |name, transactions| %>
+          <% if transactions.size > 1 %>
 
-        <div class="card-transaction-title">
-          <h2><%= name %></h2>
-          <div class="container-button-transaction">
+            <div class="card-transaction-title">
+              <h2><%= name %></h2>
+              <div class="container-button-transaction">
 
-            <div class="button-transaction pin">
-              <%= link_to new_subscription_path(transaction: name), class:"button-circle" do %>
-              <i class="fas fa-thumbtack"></i>
+                <div class="button-transaction pin">
+
+                  <i class="fas fa-thumbtack"></i>
+                  <% end %>
+                </div>
+
+                <div class="button-transaction trash">
+                    <%= simple_form_for Subscription.new do |f| %>
+                      <%= f.input :visible, as: :hidden, input_html:{value: false}%>
+                      <%= f.input :name, as: :hidden, input_html:{value: name} %>
+
+                      <button id="sweet-alert2" class= "button-circle" name="button"><i class="fas fa-trash"></i></button>
+                      <%= f.button :submit, class: "d-none", id: "delete-link"  %>
+
+
+                    <% end %>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="card-transaction-info">
+              <% transactions.each do |transaction| %>
+                <div class="transaction-info">
+
+                  <p><%= transaction.date %> - <%= transaction.reference %></p>
+                  <p class="transaction-price"><%= transaction.amount %>€</p>
+                  <%= link_to new_subscription_path(params:{transaction_id: transaction.id}), class:"button-circle" do %>
+                </div>
               <% end %>
             </div>
 
-            <div class="button-transaction trash">
-                <%= simple_form_for Subscription.new do |f| %>
-                  <%= f.input :visible, as: :hidden, input_html:{value: false}%>
-                  <%= f.input :name, as: :hidden, input_html:{value: name} %>
-
-                  <button id="sweet-alert2" class= "button-circle" name="button"><i class="fas fa-trash"></i></button>
-                  <%= f.button :submit, class: "d-none", id: "delete-link"  %>
-
-
-                <% end %>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="card-transaction-info">
-          <% transactions.each do |transaction| %>
-            <div class="transaction-info">
-
-              <p><%= transaction.date %> - <%= transaction.reference %></p>
-              <p class="transaction-price"><%= transaction.amount %>€</p>
-
-            </div>
           <% end %>
-        </div>
-
+        <% end %>
+      <% else %>
+        hello
       <% end %>
-    <% end %>
 </div>
 </div>
 

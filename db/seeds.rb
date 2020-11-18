@@ -120,6 +120,7 @@ category: "Streaming",
 periodicity: "mensuel",
 commitment: false,
 status: "en cours",
+visible: true,
 user: clement
 )
 netflix.save!
@@ -132,6 +133,7 @@ category: "Energie",
 periodicity: "mensuel",
 commitment: false,
 status: "en cours",
+visible: true,
 user: clement
 )
 edf.save!
@@ -146,6 +148,7 @@ periodicity: "annuel",
 commitment: true,
 notice: 30,
 status: "expire bientôt",
+visible: true,
 user: clement
 )
 amex.save!
