@@ -1,32 +1,41 @@
 // Specific CSS for your home-page
-body {
-  background-color: #FFF7EF;
+
+.home-header {
+  height: 100px;
+}
+
+.logo {
+  width: 160px;
 }
 
 #typed-strings {
   font-size: 32px;
-  color: #4B8C9A;
+  color: #381DF0;
   display: block;
   margin-bottom: 5px;
 }
 
 #typed {
-  font-size: 32px;
-  color: #4B8C9A;
+  font-size: 23px;
+  color: #000;
   display: block;
   margin-bottom: 5px;
 }
 
+#name {
+  color: #381DF0;
+}
+
 #typed-two {
   font-weight: 200;
-  color: #27323F;
+  color: #000;
   line-height: 30px;
 }
 
 #typed-two > span {
   font-size: 18px;
   font-weight: bolder;
-  color: #7BBDCC;
+  color: #381DF0;
 }
 
 
@@ -42,6 +51,10 @@ body {
   color: #7BBDCC;
 }
 
+.boxes {
+  margin-top: 40px;
+}
+
 .fa-smile {
   color: #7BBDCC;
   font-size: 18px;
@@ -49,12 +62,13 @@ body {
 
 .home-box {
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 4px;
+  border: 1px solid #381DF0;
   height: 100px;
   margin-bottom: 20px;
   padding: 10px;
   text-align: center;
-  box-shadow: 0px 6px 6px -3px rgba(0,0,0,0.2);
+  box-shadow: 0px 4px 6px -3px rgba(0,0,0,0.2);
 }
 
 .animation {
@@ -68,33 +82,34 @@ body {
 .home-box p {
   margin: 0 !important;
   font-weight: 300;
-  color: #4B8C9A;
+  font-size: 16px;
+  color: #000;
 }
 
 #box-one {
-  animation-delay: 4.5s;
-  margin-left: 6px;
+  animation-delay: 2.5s;
 }
 
 #box-two {
-  animation-delay: 4.75s;
-  margin-right: 6px;
+  animation-delay: 2.75s;
 }
 
 #box-three {
-  animation-delay: 5s;
-  margin-left: 6px;
+  animation-delay: 3s;
 }
 
 #box-four {
-  animation-delay: 5.25s;
-  margin-right: 6px;
+  animation-delay: 3.25s;
 }
 
-.home-link a:hover {
+.home-link:hover {
   text-decoration: none;
+  box-shadow: none;
 }
 
+.action-verb {
+  color: #381DF0;
+}
 
 @keyframes appear {
   from {
