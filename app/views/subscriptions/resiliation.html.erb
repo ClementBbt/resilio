@@ -1,10 +1,42 @@
-<h1>Demande de Résiliation</h1>
-<%= subscription.name %>
+<h1 class="text-align-center">Demande de Résiliation</h1>
+<h3> <%= subscription.name %></h3>
 
-<h2>Mes coordonnées</h2>
-<p><%= current_user.first_name %></p>
-<p><%= current_user.last_name %></p>
-<p><%= current_user.email %></p>
+<div>
+  <div>
+    <h2>Mes coordonnées</h2>
+    <p><%= current_user.first_name %></p>
+    <p><%= current_user.last_name %></p>
+    <p><%= current_user.email %></p>
+  </div>
+  <div>
+    <h2>A l'attention de</h2>
+    <p><%= subscription.name %></p>
+    <p>Service résiliation</p>
+    <br>
+    <p>Le :<%= Date.today %>  </p>
+  </div>
+</div>
+
+<div>
+<span>OBJET : DEMANDE DE RESILIATION D'ABONNEMENT(S)</span>
+</div>
+
+<div>
+  <p>Madame, Monsieur,
+  <br>
+  Je souhaite résilier mon abonnement : <%= subscription.name %> , Echéance le : <%= subscription.end_date %>.
+  <br>
+  <br>
+  Le, <%= Date.today %>
+  <br>
+  Signature :
+</p>
+</div>
+
+
+
+
+
 
 
 
