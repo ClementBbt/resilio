@@ -1,3 +1,65 @@
+<!-- HEADER -->
+
+<div class="banner-show d-flex justify-content-center align-items-center">
+  <h1><%= @subscription.name %></h1>
+</div>
+<div class="picto-show d-flex justify-content-center align-items-center">
+  <% case @subscription.category %>
+    <% when 'Energie'%>
+      <i class="fas fa-bolt"></i>
+    <% when 'Loisirs'%>
+      <i class="fas fa-biking"></i>
+    <% when 'Telecom'%>
+      <i class="fas fa-mobile-alt"></i>
+    <% when 'Streaming' %>
+      <i class="fas fa-desktop"></i>
+    <% when 'Divers'%>
+      <i class="fas fa-ellipsis-h"></i>
+  <% end %>
+</div>
+
+<!-- CONTENT -->
+
+<div class="container show-content">
+  <div class="price">
+    <p><span id="figure"><%= @subscription.price %></span> <span class="periodicity">€ / <%= @subscription.periodicity == "mensuel"  ? "mois" : "an" %></span></p>
+  </div>
+  <div class="statut d-flex justify-content-center">
+    <% if @subscription.commitment && @subscription.status == "en cours"%>
+      <p>Abonnement en cours <span class="periodicity">jusqu'au</span> <%= @subscription.end_date.strftime('%d/%m/%Y')%></p>
+    <% elsif @subscription.commitment && @subscription.status == "expire bientôt"%>
+      <i class="picto-alert fas fa-exclamation-triangle"></i>
+      <p>Votre abonnement expire le <%= @subscription.end_date.strftime('%d/%m/%Y') %></p>
+      <% else %>
+      <p>Abonnement <%= @subscription.status %></p>
+    <% end %>
+  </div>
+  <div class="engagement">
+    <% if @subscription.commitment %>
+        <p>Avec engagement</p>
+      <% else %>
+        <p>Sans engagement</p>
+    <% end %>
+  </div>
+
+<!-- BUTTON -->
+
+  <% if @subscription.commitment %>
+    <div class="mt-5">
+      <%= link_to "Modifier mon abonnement", edit_subscription_path(@subscription), class:'edit-button' %>
+    </div>
+    <div class="mt-4">
+      <%= link_to "Annuler mon abonnement", resiliation_subscription_path(@subscription, format: :pdf), class:'cancel-button' %>
+    </div>
+  <% else %>
+    <div class="mt-5">
+      <%= link_to "Modifier mon abonnement", edit_subscription_path(@subscription), class:'edit-button' %>
+    </div>
+  <% end %>
+</div>
+
+
+<!--
 <div class="mega-banner">
   <div class="banner-subscription">
     <% case @subscription.category %>
@@ -73,5 +135,6 @@
     </div>
   </div>
 </div>
- <!--  -->
+
+-->
 

@@ -1,3 +1,45 @@
+
+<!-- LOGO -->
+
+<div class="home-header d-flex justify-content-center align-items-center">
+  <%= image_tag 'logo.png', class: "logo" %>
+</div>
+
+<!-- WELCOME -->
+<div class="container">
+  <div id="typed-strings">
+    <h1>Hello <span id="name"><%= current_user.first_name %>,</span></h1>
+  </div>
+  <span id="typed" class="<%= "animation-typed-js-1" if @animation %>"></span>
+  <div id="typed-strings-two">
+    <p>Tu as <span><%= @subscriptions.length %></span> abonnements en cours </p>
+  </div>
+  <span id="typed-two" class="<%= "animation-typed-js-2" if @animation %>"></span>
+</div>
+
+<!-- BOXES -->
+
+<div class= container>
+  <div class="boxes">
+    <%= link_to transactions_path, class: "home-link" do %>
+      <div id="box-one" class="home-box <%= "animation" if @animation %> d-flex align-items-center justify-content-center">
+        <p><span class="action-verb">Synchroniser</span> mes comptes</p>
+      </div>
+    <% end %>
+  </div>
+    <%= link_to subscriptions_path(search: "expired"), class: "home-link" do %>
+      <div id="box-two" class="home-box <%= "animation" if @animation %> d-flex align-items-center justify-content-center">
+        <p>Abonnements <span class="action-verb">à surveiller</span></p>
+      </div>
+    <% end %>
+    <%= link_to subscriptions_path(search: "resiliation"), class: "home-link" do %>
+      <div id="box-three" class="home-box <%= "animation" if @animation %> d-flex align-items-center justify-content-center">
+        <p><span class="action-verb">Résiliations</span> en cours</p>
+      </div>
+    <% end %>
+</div>
+
+<!--
 <div class="container">
   <div id="typed-strings">
     <h1>Hello <%= current_user.first_name %> !</h1>
@@ -37,3 +79,4 @@
     </div>
   </div>
 </div>
+-->

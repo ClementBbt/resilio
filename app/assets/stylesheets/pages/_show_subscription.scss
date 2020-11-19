@@ -1,0 +1,149 @@
+
+.banner-show {
+  height: 160px;
+  background-color: #381DF0;
+  color: #fff;
+  text-align: center;
+}
+
+.banner-show h1 {
+  font-size: 30px;
+}
+
+.picto-show {
+  background-color: #fff;
+  width: 63px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  position: absolute;
+  top:128px;
+  left: 156px;
+}
+
+.picto-show i {
+  padding: 15px;
+  color: #24B2AA;
+  font-size: 34px;
+}
+
+.picto-alert {
+  color: #24B2AA;
+  padding-right: 8px;
+}
+
+.show-content {
+  margin-top: 80px;
+  text-align: center;
+  color: #000;
+}
+
+#figure {
+  font-size: 40px;
+}
+
+.statut {
+  margin-top: 33px;
+}
+
+.engagement p {
+  border: 1px solid #24B2AA;
+  border-radius: 70px;
+  padding: 5px 10px;
+  display: inline-block;
+}
+
+.cancel-button {
+  background-color: #381DF0;
+  color: #fff;
+  border-radius: 70px;
+  font-size: 14px;
+  padding: 10px 15px;
+
+}
+
+.edit-button {
+  background-color: #24B2AA;
+  color: #fff;
+  border-radius: 70px;
+  font-size: 14px;
+  padding: 10px 15px;
+
+}
+
+.cancel-button:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #190986;
+}
+
+.edit-button:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #187772;
+}
+
+.periodicity {
+  color: #757385;
+}
+
+/*
+.banner-subscription {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.banner-subscription img {
+  height:30vh;
+  width: 100%;
+}
+
+.banner-subscription h1 {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  color: white;
+}
+
+.banner-subscription-logo img {
+  position: absolute;
+  bottom: -5%;
+  left: 5%;
+  height: 60px;
+  width: 60px;
+}
+
+.mega-banner {
+  position: relative;
+}
+
+.mega-banner-category {
+  position: absolute;
+  bottom: -12%;
+  left: 25%;
+}
+
+.infos {
+  padding-top: 50px;
+}
+
+.price {
+  font-size: 40px;
+  color: #4B8C9A;
+  margin-bottom: 20px;
+}
+
+.card-show {
+  overflow: hidden;
+  height: 60px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  display: flex;
+  border-radius: 10px;
+  justify-content: space-between;
+  padding: 5px;
+  margin-bottom: 6px;
+}
+*/
+

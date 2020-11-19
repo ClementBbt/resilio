@@ -3,6 +3,8 @@ class SubscriptionsController < ApplicationController
   def index
     if params[:search] == "expired"
       @subscriptions = Subscription.where(status: "expire bientôt")
+    elsif params[:search] == "resiliation"
+      @subscriptions = Subscription.where(status: "en cours de résiliation")
     else
       @subscriptions = Subscription.all
     end
@@ -27,6 +29,11 @@ class SubscriptionsController < ApplicationController
       render 'new'
     end
   end
+
+  def edit
+    @subscription = Subscription.find(params[:id])
+  end
+
 
   def show
     @subscription = Subscription.find(params[:id])
