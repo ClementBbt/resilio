@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import { initSweetalert } from '../plugins/init_sweetalert';
 import "../plugins/flatpickr"
+import {dateToggle} from '../plugins/init_date_toggle';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -36,6 +37,7 @@ document.addEventListener('turbolinks:load', () => {
 
   // Call your functions here, e.g:
   initSweetalert();
+  dateToggle();
 
   // Call your JS functions here
   // [...]

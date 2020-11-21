@@ -12,7 +12,9 @@ class SubscriptionsController < ApplicationController
 
   def new
     @subscription = Subscription.new
-    @transaction = Transaction.find(params[:transaction_id])
+    transaction_id = params.to_unsafe_h[:transactions].sort.last.to_i
+    @transaction = Transaction.find(transaction_id)
+    #@transaction = Transaction.find(params[:transaction_id])
   end
 
   def create
@@ -63,7 +65,7 @@ class SubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.require(:subscription).permit(:visible, :name, :category, :start_date, :end_date, :price, :periodicity, :commitment, :notice, :status)
+    params.require(:subscription).permit(:visible, :name, :category, :start_date, :end_date, :price, :periodicity, :commitment, :notice, :status, :alias)
   end
 
 end

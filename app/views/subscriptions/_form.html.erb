@@ -3,20 +3,20 @@
   <%= simple_form_for @subscription do |f| %>
     <!-- REVOIR POUR CREER BOUTON TRUE SUR VISIBLE -->
     <%= f.input :visible, as: :hidden, input_html:{value: true}%>
-
-    <%= f.input :name, label: "Votre abonnement", input_html:{value: @transaction.title} %>
-    <%#= f.input :name, label: "Votre abonnement", input_html:{value: @transaction.title} %>
+    <%= f.input :price, label: "Prix", input_html:{value: @transaction.amount} %>
+    <%= f.input :name, label: "Votre abonnement", input_html:{value: @transaction.title, readonly:true} %>
+    <%= f.input :alias, label: "Voulez-vous changer le nom de votre abonnement ?", input_html:{value: @transaction.title} %>
 
     <!-- YES or NO -->
-    <%= f.input :commitment, input_html: {id: "yes-or-no"}, as: :radio_buttons, collection: ['Oui','Non'], label: "Êtes-vous engagés ?" %>
+    <%= f.input :commitment, input_html: {class: "yes-or-no"}, as: :radio_buttons, collection: ['Oui','Non'], label: "Êtes-vous engagés ?" %>
 
       <!-- IF YES -->
-    <div id: :if-yes>
+    <div id="if-yes" class="d-none">
       <div class="form-wrapper" >
         <%= f.input :start_date, label: "Date de début de votre abonnement", as: :string, required: true, input_html: {class: "datepicker"} %>
         <%= f.input :end_date, label: "Date de fin de votre abonnement", as: :string, required: true, input_html: {class: "datepicker"} %>
       </div>
-      <%= f.input :price, label: "Prix", input_html:{value: @transaction.amount} %>
+
       <%= f.input :periodicity, label: "Périodicité", collection: ['Mensuel','Annuel'] %>
     </div>
 
