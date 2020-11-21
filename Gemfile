@@ -35,6 +35,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'docusign_rest'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

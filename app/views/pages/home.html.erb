@@ -29,7 +29,8 @@
   </div>
     <%= link_to subscriptions_path(search: "expired"), class: "home-link" do %>
       <div id="box-two" class="home-box <%= "animation" if @animation %> d-flex align-items-center justify-content-center">
-        <p>Abonnements <span class="action-verb">à surveiller</span></p>
+        <p>Abonnements <span class="action-verb">à surveiller</span>   <span class="notifications">  <%= Subscription.where(status: "expire bientôt").count %></span></p>
+
       </div>
     <% end %>
     <%= link_to subscriptions_path(search: "resiliation"), class: "home-link" do %>

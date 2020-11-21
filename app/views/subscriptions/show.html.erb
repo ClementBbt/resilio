@@ -44,7 +44,7 @@
 
 <!-- BUTTON -->
 
-  <% if @subscription.commitment %>
+  <% if @subscription.commitment && @subscription.status == "en cours" %>
     <div class="mt-5">
       <%= link_to "Modifier mon abonnement", edit_subscription_path(@subscription), class:'edit-button' %>
     </div>
