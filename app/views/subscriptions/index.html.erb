@@ -33,7 +33,7 @@
           <% end %>
         </div>
         <div class="card-product-infos">
-          <h2> <%= subscription.name %> </h2>
+          <h2> <%= subscription.alias %> </h2>
           <div class="price-periodicity d-flex justify-content-between align-items-center">
             <p id="product-price"><%= subscription.price %>€ <span>/ <%= subscription.periodicity == "mensuel"  ? "mois" : "an" %></span></p>
             <% if subscription.status == "expire bientôt" %>

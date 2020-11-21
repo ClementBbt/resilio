@@ -1,58 +1,61 @@
 <!-- TRANSACTION INDEX BANNER -->
 <div class="banner-transaction">
-  <h1>Mes paiements récurrents</h1>
+  <h1>Les paiements récurrents sur mon compte bancaire</h1>
 </div>
 
 <!-- CARD TRANSACTION -->
 <div class="container">
-  <div class="container-transaction">
-      <!-- si @transactions est vide alors message -->
-      <% if @transactions %>
-        coucou
-        <% @transactions.each do |name, transactions| %>
-          <% if transactions.size > 1 %>
+  <!-- si @transactions alors cards -->
+  <% if @transactions&.any? {|name, transactions| transactions.size > 1 } %>
+    <% @transactions.each_with_index do |(name, transactions), index| %>
+      <div class="container-transaction">
+        <% if transactions.size > 1 %>
 
-            <div class="card-transaction-title">
-              <h2><%= name %></h2>
-              <div class="container-button-transaction">
+          <div class="card-transaction-title">
+            <h2><%= name %></h2>
+            <div class="container-button-transaction">
 
-                <div class="button-transaction pin">
+              <!-- BUTTON PIN -->
+              <div class="button-transaction pin">
+                <%= link_to new_subscription_path(params:{transactions: transactions}), data:{turbolinks:"false"} do %>
+                  <i class="fas fa-thumbtack button-circle"></i>
+                <% end %>
+              </div>
 
-                  <i class="fas fa-thumbtack"></i>
-                  <% end %>
-                </div>
-
-                <div class="button-transaction trash">
-                    <%= simple_form_for Subscription.new do |f| %>
-                      <%= f.input :visible, as: :hidden, input_html:{value: false}%>
-                      <%= f.input :name, as: :hidden, input_html:{value: name} %>
-
-                      <button id="sweet-alert2" class= "button-circle" name="button"><i class="fas fa-trash"></i></button>
-                      <%= f.button :submit, class: "d-none", id: "delete-link"  %>
-
-
-                    <% end %>
-                </div>
-
+              <!-- BUTTON TRASH -->
+              <div class="button-transaction trash">
+                <%= simple_form_for Subscription.new do |f| %>
+                  <%= f.input :visible, as: :hidden, input_html:{value: false}%>
+                  <%= f.input :name, as: :hidden, input_html:{value: name} %>
+                  <button id="sweet-alert2-#{index}" class= "button-circle" name="button"><i class="fas fa-trash"></i></button>
+                  <%= f.button :submit, class: "d-none", id: "delete-link-#{index}"  %>
+                <% end %>
               </div>
             </div>
-
-            <div class="card-transaction-info">
-              <% transactions.each do |transaction| %>
-                <div class="transaction-info">
-
-                  <p><%= transaction.date %> - <%= transaction.reference %></p>
-                  <p class="transaction-price"><%= transaction.amount %>€</p>
-                  <%= link_to new_subscription_path(params:{transaction_id: transaction.id}), class:"button-circle" do %>
+          </div>
+          <!-- TOUTES LES TRANSACTIONS D'UN ABONNEMENT -->
+          <div class="card-transaction-info">
+            <% transactions.each do |transaction| %>
+              <div class="transaction-info">
+                <div>
+                  <p class="transaction-date"><%= transaction.date %></p>
+                  <p><%= transaction.reference %></p>
                 </div>
-              <% end %>
-            </div>
-
-          <% end %>
+                <div class="transaction-price">
+                  <h5><%= transaction.amount %> €</h5>
+                </div>
+              </div>
+            <% end %>
+          </div>
         <% end %>
-      <% else %>
-        hello
-      <% end %>
-</div>
-</div>
+      </div>
+    <% end %>
 
+  <!-- si @transactions est vide alors message -->
+  <% else %>
+    <div class="container-no-transaction">
+      <p>Vous êtes à jour !</p></br>
+      <p >Il n'y a plus de transaction à classer</p>
+    </div>
+  <% end %>
+</div>
