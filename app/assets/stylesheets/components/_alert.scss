@@ -5,6 +5,15 @@
   z-index: 1000;
 }
 
+.notifications {
+  height: 25px;
+  width: 25px;
+  color: white;
+  background-color: #381DF0;
+  border: 1px solid;
+  border-radius: 50%;
+  display: inline-block;
+
 .swal-footer {
   display: flex;
   justify-content: center;
