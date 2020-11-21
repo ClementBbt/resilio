@@ -1,25 +1,25 @@
-// .navbar-lewagon {
-//   justify-content: space-between;
-//   background: white;
-// }
-
-// .navbar-lewagon .navbar-collapse {
-//   flex-grow: 0;
-// }
-
-// .navbar-lewagon .navbar-brand img {
-//   width: 40px;
-// }
 
 .picto {
-  width: 40px;
+}
 
+.picto i {
+  font-size: 26px;
+  color: #757385;
+}
+
+.picto a i:focus {
+  font-size: 26px;
+  color: #381DF0;
+}
+
+.active {
+  color: #381DF0;
 }
 
 .nav {
-  background-color: #C8DFE4;
   height: 60px;
-  padding-top: 10px;
+  background-color: #e5e5e5;
+  border-top: 1px solid #757385;
 }
 
 .dropdown-menu {
@@ -34,7 +34,15 @@
   padding: 0.25rem 0.5rem;
 }
 
+.dropup .dropdown-toggle::after {
+  display: none;
+}
+
 div.dropdown-menu.dropdown-menu-right.show {
   top: 3px !important;
   left: 12px !important;
+}
+
+div.dropup {
+  margin: none;
 }

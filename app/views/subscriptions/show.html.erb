@@ -1,7 +1,7 @@
 <!-- HEADER -->
 
 <div class="banner-show d-flex justify-content-center align-items-center">
-  <h1><%= @subscription.name %></h1>
+  <h1><%= @subscription.alias %></h1>
 </div>
 <div class="picto-show d-flex justify-content-center align-items-center">
   <% case @subscription.category %>
@@ -57,84 +57,4 @@
     </div>
   <% end %>
 </div>
-
-
-<!--
-<div class="mega-banner">
-  <div class="banner-subscription">
-    <% case @subscription.category %>
-      <% when 'Energie'%>
-        <%= image_tag 'energie_banner.jpg' %>
-      <% when 'Loisirs'%>
-        <%= image_tag 'loisirs_banner.jpg' %>
-      <% when 'Telecom'%>
-        <%= image_tag 'telecom_banner.jpg' %>
-      <% when 'Streaming' %>
-        <%= image_tag 'stream_banner.jpg' %>
-      <% when 'Divers'%>
-        <%= image_tag 'divers_banner.jpg' %>
-    <% end %>
-    <h1> <%= @subscription.name %></h1>
-    <div class=container>
-      <div class="banner-subscription-logo">
-        <% case @subscription.category %>
-          <% when 'Energie'%>
-            <%= image_tag 'energie_rond.png' %>
-          <% when 'Loisirs'%>
-            <%= image_tag 'loisirs_rond.png' %>
-          <% when 'Telecom'%>
-            <%= image_tag 'telecom_rond.png' %>
-          <% when 'Streaming' %>
-            <%= image_tag 'streaming_rond.png' %>
-          <% when 'Divers'%>
-            <%= image_tag 'divers_rond.png' %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="mega-banner-category">
-    <%= @subscription.category %>
-  </div>
-</div>
-<div class=container>
-  <div class="infos">
-    <p> <%= current_user.first_name %>, voici le détail de votre souscription : <%= @subscription.name %></p>
-    <div class="price">
-      <%= @subscription.price %> € / <%= @subscription.periodicity == "mensuel"  ? "Mois" : "An" %>
-    </div>
-    <div class="card-show">
-      <div>
-        Statut
-      </div>
-      <div>
-        <%= @subscription.status %>
-      </div>
-    </div>
-    <div class="card-show">
-      <div>
-        <i class="far fa-calendar-times"></i>
-      </div>
-      <div>
-        <% if @subscription.end_date %>
-          <p>du <%= @subscription.start_date %> au <%= @subscription.end_date %></p>
-        <% else %>
-          <p>Commencé le : <%= @subscription.start_date %> </p>
-        <% end %>
-      </div>
-    </div>
-    <div class="card-show">
-      <div>
-         Date limite courrier :
-      </div>
-      <div>
-        <%= @subscription.limit_date %>
-      </div>
-    </div>
-    <div class="mt-5">
-      <%= link_to "J'annule mon abonnement", resiliation_subscription_path(@subscription, format: :pdf), class:'btn btn-info' %>
-    </div>
-  </div>
-</div>
-
--->
 

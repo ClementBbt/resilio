@@ -114,6 +114,7 @@ puts "Creating subscriptions..."
 
 netflix = Subscription.new(
 name: "Netflix",
+alias: "Netflix",
 start_date: "2018-10-15",
 price: 11.99,
 category: "Streaming",
@@ -127,6 +128,7 @@ netflix.save!
 
 edf = Subscription.new(
 name: "EDF",
+alias: "EDF",
 start_date: "2015-02-23",
 price: 35.56,
 category: "Energie",
@@ -140,6 +142,7 @@ edf.save!
 
 amex = Subscription.new(
 name: "American Express",
+alias: "American Express",
 start_date: "2020-02-02",
 end_date: "2021-02-02",
 price: 150,
