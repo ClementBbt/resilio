@@ -44,7 +44,14 @@
 
 <!-- BUTTON -->
 
-  <% if @subscription.commitment && @subscription.status == "en cours" %>
+  <% if @subscription.commitment && @subscription.status == "expire bientôt" %>
+    <div class="mt-5">
+      <%= link_to "Modifier mon abonnement", edit_subscription_path(@subscription), class:'edit-button' %>
+    </div>
+    <div class="mt-4">
+      <%= link_to "Annuler mon abonnement", resiliation_subscription_path(@subscription, format: :pdf), class:'cancel-button' %>
+    </div>
+  <% elsif @subscription.commitment && @subscription.status == "en cours"%>
     <div class="mt-5">
       <%= link_to "Modifier mon abonnement", edit_subscription_path(@subscription), class:'edit-button' %>
     </div>
