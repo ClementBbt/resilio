@@ -4,3 +4,32 @@
   right: 16px;
   z-index: 1000;
 }
+
+.swal-footer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 26px;
+  margin-top: 0px;
+}
+
+.swal-button--cancel {
+
+}
+
+.swal-button--confirm {
+  background-color: #381DF0;
+}
+
+.swal-button--confirm:hover {
+  background-color: #24B2AA!important;
+}
+
+.swal-title {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 0px!important;
+}
+
+.swal-button {
+  font-weight: 200;
+}

@@ -1,5 +1,5 @@
 <div class="banner-transaction">
-  <h1>Dites nous en plus sur votre nouvel abonnement <%=@transaction.title%> de <%=@transaction.amount%>€</h1>
+  <h1>Dites nous en plus sur votre nouvel abonnement <span class="action-verb"><%=@transaction.title%></span> de <span class="action-verb"><%=@transaction.amount%>€</span></h1>
 
 </div>
   <%= render "form", subscription: @subscription %>

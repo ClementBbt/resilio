@@ -1,13 +1,14 @@
 <!-- TRANSACTION INDEX BANNER -->
 <div class="banner-transaction">
-  <h1>Les paiements récurrents sur mon compte bancaire</h1>
+  <h1>Nous avons identifié une réccurence des paiements suivants sur votre <span class="action-verb">compte bancaire</span></h1>
 </div>
 
 <!-- CARD TRANSACTION -->
-<div class="container">
+
   <!-- si @transactions alors cards -->
-  <% if @transactions&.any? {|name, transactions| transactions.size > 1 } %>
-    <% @transactions.each_with_index do |(name, transactions), index| %>
+<% if @transactions&.any? {|name, transactions| transactions.size > 1 } %>
+  <div class="container">
+    <% @transactions.each do |name, transactions| %>
       <div class="container-transaction">
         <% if transactions.size > 1 %>
 
@@ -27,8 +28,8 @@
                 <%= simple_form_for Subscription.new do |f| %>
                   <%= f.input :visible, as: :hidden, input_html:{value: false}%>
                   <%= f.input :name, as: :hidden, input_html:{value: name} %>
-                  <button id="sweet-alert2-#{index}" class= "button-circle" name="button"><i class="fas fa-trash"></i></button>
-                  <%= f.button :submit, class: "d-none", id: "delete-link-#{index}"  %>
+                  <button id="sweet-alert2" class= "button-circle" name="button"><i class="fas fa-trash"></i></button>
+                  <%= f.button :submit, class: "d-none", id: "delete-link"  %>
                 <% end %>
               </div>
             </div>
@@ -50,12 +51,25 @@
         <% end %>
       </div>
     <% end %>
+  </div>
 
   <!-- si @transactions est vide alors message -->
-  <% else %>
-    <div class="container-no-transaction">
-      <p>Vous êtes à jour !</p></br>
-      <p >Il n'y a plus de transaction à classer</p>
+<% else %>
+  <div class= "container">
+    <div class="max-size-container d-flex flex-column justify-content-center">
+        <div class="home-box d-flex animation align-items-center justify-content-center flex-column">
+          <p><span class="action-verb">Vous êtes à jour !</span></p>
+          <p >Il n'y a plus de transaction à classer</p>
+        </div>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+
+
