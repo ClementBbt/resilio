@@ -4,7 +4,7 @@ class SubscriptionsController < ApplicationController
     if params[:search] == "expired"
       @subscriptions = Subscription.where(status: "expire bientôt")
     elsif params[:search] == "resiliation"
-      @subscriptions = Subscription.where(status: "en cours de résiliation")
+      @subscriptions = Subscription.where(status: "résiliation en cours")
     else
       @subscriptions = Subscription.all
     end
@@ -111,9 +111,9 @@ class SubscriptionsController < ApplicationController
 
     enveloppe_id = document_envelope_response['envelopeId']
 
-    url = client.get_recipient_view(envelope_id: enveloppe_id, name: "#{current_user.first_name} #{current_user.last_name}", email: current_user.email, return_url: "#{ENV["ROOT_URL"]}/subscriptions/#{subscription.id}")['url']
+    url = client.get_recipient_view(envelope_id: enveloppe_id, name: "#{current_user.first_name} #{current_user.last_name}", email: current_user.email, return_url: "#{ENV['ROOT_URL']}/subscriptions?search=resiliation")['url']
 
-    subscription.update(status: "Résiliation en cours")
+    subscription.update(status: "résiliation en cours")
 
     return url
 
