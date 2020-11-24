@@ -9,7 +9,11 @@
 
 <div class="container">
   <div id="count">
-    <p>Vous avez <span><%= @subscriptions.length %></span> abonnements en cours </p>
+    <% if @subscriptions.length > 1 %>
+    <p><span><%= @subscriptions.length %></span> abonnements correspondent à ta recherche </p>
+    <% else %>
+      <p><span><%= @subscriptions.length %></span> abonnement correspond à ta recherche </p>
+    <% end %>
   </div>
 </div>
 
