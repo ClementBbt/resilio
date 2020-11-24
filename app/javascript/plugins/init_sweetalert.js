@@ -19,11 +19,12 @@ const initSweetalert = () => {
 
     swalInstance(button, {
       title: "Voulez-vous vraiment supprimer cette transaction ?",
-      text: "Toute suppression est définitive",
-      icon: "warning",
-      // iconColor: "#87B5BF",
+      // text: "Toute suppression est définitive",
+      // icon: "warning",
       buttons: ["Surtout pas !", "Oui, ouste !"],
       // dangerMode: true,
+      confirmButtonColor: '#000000',
+      // cancelButtonColor: '#d33',
       className: "",
       closeOnClickOutside: true
     }, (value) => {

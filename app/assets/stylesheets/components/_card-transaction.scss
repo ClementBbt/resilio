@@ -63,8 +63,8 @@
 .transaction-price {
   color: #24B2AA;
   vertical-align: middle;
-top: 50%;
-margin-top: 10px;
+  top: 50%;
+  margin-top: 10px;
 }
 
 .transaction-price h5{
@@ -128,23 +128,6 @@ margin-top: 10px;
 
 // CARD NO TRANSACTION
 
-.container-no-transaction {
-  // position: absolute; /* postulat de départ */
-  // top: 50%; left: 50%; /* à 50%/50% du parent référent */
-  // transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
-  background-color: #ffffff;
-  border-radius: 4px;
-  border: 1px solid #381DF0;
-  height: 100px;
-  padding: 10px;
-
-  box-shadow: 0px 4px 6px -3px rgba(0, 0, 0, 0.2);
-}
-
-.container-no-transaction p{
-  font-weight: 300;
-  font-size: 16px;
-  color: #000000;
-  margin: 0!important;
-  text-align: center;
+.max-size-container {
+  height: calc(100vh - 145px - 145px)
 }
