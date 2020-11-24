@@ -31,6 +31,7 @@ import {dateToggle} from '../plugins/init_date_toggle';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { loadDynamicBannerText, loadDynamicBannerTextTwo } from '../components/banner';
+import { activeButtonHome } from '../components/active';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -43,5 +44,5 @@ document.addEventListener('turbolinks:load', () => {
   // [...]
   loadDynamicBannerText();
   loadDynamicBannerTextTwo();
-
+  activeButtonHome();
 });

@@ -7,12 +7,7 @@
   color: #757385;
 }
 
-.picto a i:focus {
-  font-size: 26px;
-  color: #381DF0;
-}
-
-.active {
+.active i {
   color: #381DF0;
 }
 
@@ -23,24 +18,31 @@
 }
 
 .dropdown-menu {
-  background-color: #C8DFE4;
+  background-color: #e5e5e5;
   border: none;
+  padding: 20px;
 }
 
 .dropdown-item {
-  color: #fff;
+  color: #000;
   font-weight: 300;
-  font-size: 12px;
-  padding: 0.25rem 0.5rem;
+  font-size: 15px;
+  padding: 10px 0px;
 }
+
+a:hover.dropdown-item {
+  background-color: #381DF0;
+  color: #fff;
+}
+
 
 .dropup .dropdown-toggle::after {
   display: none;
 }
 
 div.dropdown-menu.dropdown-menu-right.show {
-  top: 3px !important;
-  left: 12px !important;
+  top: -14px !important;
+  left: 33px !important;
 }
 
 div.dropup {

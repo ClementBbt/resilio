@@ -1,18 +1,18 @@
 <% if user_signed_in? %>
   <div class="nav fixed-bottom d-flex justify-content-around align-items-center">
-        <div class="d-inline picto">
+        <div class="d-inline picto <%= "active" if controller_name == "pages" %>">
           <%= link_to "/" do %>
-            <i class="fas fa-home active"></i>
+            <i class="fas fa-home"></i>
           <% end %>
         </div>
-        <div class="d-inline picto">
+        <div class="d-inline picto <%= "active" if controller_name == "subscriptions" %>">
           <%= link_to subscriptions_path do %>
-            <i class="fas fa-list-ul active"></i>
+            <i class="fas fa-list-ul"></i>
           <% end %>
         </div>
-        <div class="d-inline picto">
+        <div class="d-inline picto <%= "active" if controller_name == "transactions" %>">
           <%= link_to transactions_path do %>
-            <i class="fas fa-sync-alt active"></i>
+            <i class="fas fa-sync-alt"></i>
           <% end %>
         </div>
         <div class="picto dropup">
