@@ -1,3 +1,7 @@
 .container-custom {
-padding-bottom: 60px;
+  padding-bottom: 60px;
+}
+
+.container-fix {
+  min-height: calc(100vh - 60px);
 }
