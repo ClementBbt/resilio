@@ -1,18 +1,30 @@
 
 <!-- HEADER -->
 
-<div class="banner-index d-flex justify-content-center align-items-center">
-  <h1>Abonnements</h1>
-</div>
+<% if params[:search] == "expired" %>
+  <div class="banner-index d-flex justify-content-center align-items-center">
+    <h1>Abonnements à surveiller</h1>
+  </div>
+<% elsif params[:search] == "resiliation" %>
+  <div class="banner-index d-flex justify-content-center align-items-center">
+    <h1>Abonnements en cours de résiliation</h1>
+  </div>
+<% else  %>
+  <div class="banner-index d-flex justify-content-center align-items-center">
+    <h1>Abonnements</h1>
+  </div>
+<% end  %>
 
 <!-- CARDS -->
 
 <div class="container">
   <div id="count">
-    <% if @subscriptions.length > 1 %>
-    <p><span><%= @subscriptions.length %></span> abonnements correspondent à ta recherche </p>
+    <% if @subscriptions.where(visible: true).count == 0 %>
+      <p>Aucun abonnement ne correspond à ta recherche </p>
+    <% elsif @subscriptions.where(visible: true).count > 1 %>
+      <p><span><%= @subscriptions.where(visible: true).count %></span> abonnements correspondent à ta recherche </p>
     <% else %>
-      <p><span><%= @subscriptions.length %></span> abonnement correspond à ta recherche </p>
+      <p><span><%= @subscriptions.where(visible: true).count %></span> abonnement correspond à ta recherche </p>
     <% end %>
   </div>
 </div>
