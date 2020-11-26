@@ -163,28 +163,28 @@ puts "Creating transactions..."
 # Deliveroo Plus
 
 deliveroo_one = Transaction.new(
-title: "Deliveroo Plus FR London",
+title: "Le Café Sans Nom",
 reference: "3ff56785g3",
 date: "2020-10-07",
-amount: 10.99,
+amount: 5.50,
 bank_account: compte_clement
 )
 deliveroo_one.save!
 
 deliveroo_two = Transaction.new(
-title: "Deliveroo Plus FR London",
+title: "Le Café Sans Nom",
 reference: "3ff56785g3",
-date: "2020-09-07",
-amount: 10.99,
+date: "2020-10-09",
+amount: 21.00,
 bank_account: compte_clement
 )
 deliveroo_two.save!
 
 deliveroo_three = Transaction.new(
-title: "Deliveroo Plus FR London",
+title: "Le Café Sans Nom",
 reference: "3ff56785g3",
-date: "2020-08-07",
-amount: 10.99,
+date: "2020-10-17",
+amount: 13.20,
 bank_account: compte_clement
 )
 deliveroo_three.save!
