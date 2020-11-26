@@ -30,6 +30,9 @@
     <% elsif @subscription.commitment && @subscription.status == "expire bientôt"%>
       <i class="picto-alert fas fa-exclamation-triangle"></i>
       <p>Votre abonnement expire le <%= @subscription.end_date.strftime('%d/%m/%Y') %></p>
+      <% elsif @subscription.commitment && @subscription.status == "résiliation en cours"%>
+      <i class="picto-alert fas fa-exclamation-triangle"></i>
+      <p>Abonnement en cours de résiliation</p>
       <% else %>
       <p>Abonnement <%= @subscription.status %></p>
     <% end %>

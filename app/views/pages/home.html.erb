@@ -12,7 +12,7 @@
   </div>
   <span id="typed" class="<%= "animation-typed-js-1" if @animation %>"></span>
   <div id="typed-strings-two">
-    <p>Tu as <span><%= @subscriptions.length %></span> abonnements en cours </p>
+    <p>Tu as <span><%= @subscriptions.where(visible: true).count %></span> abonnements en cours </p>
   </div>
   <span id="typed-two" class="<%= "animation-typed-js-2" if @animation %>"></span>
 </div>
