@@ -1,66 +1,67 @@
 
 <!-- HEADER -->
+<div class="container-fix">
+  <% if params[:search] == "expired" %>
+    <div class="banner-index d-flex justify-content-center align-items-center">
+      <h1>Abonnements à surveiller</h1>
+    </div>
+  <% elsif params[:search] == "resiliation" %>
+    <div class="banner-index d-flex justify-content-center align-items-center">
+      <h1>Abonnements en cours de résiliation</h1>
+    </div>
+  <% else  %>
+    <div class="banner-index d-flex justify-content-center align-items-center">
+      <h1>Abonnements</h1>
+    </div>
+  <% end  %>
 
-<% if params[:search] == "expired" %>
-  <div class="banner-index d-flex justify-content-center align-items-center">
-    <h1>Abonnements à surveiller</h1>
-  </div>
-<% elsif params[:search] == "resiliation" %>
-  <div class="banner-index d-flex justify-content-center align-items-center">
-    <h1>Abonnements en cours de résiliation</h1>
-  </div>
-<% else  %>
-  <div class="banner-index d-flex justify-content-center align-items-center">
-    <h1>Abonnements</h1>
-  </div>
-<% end  %>
+  <!-- CARDS -->
 
-<!-- CARDS -->
-
-<div class="container">
-  <div id="count">
-    <% if @subscriptions.where(visible: true).count == 0 %>
-      <p>Aucun abonnement ne correspond à ta recherche </p>
-    <% elsif @subscriptions.where(visible: true).count > 1 %>
-      <p><span><%= @subscriptions.where(visible: true).count %></span> abonnements correspondent à ta recherche </p>
-    <% else %>
-      <p><span><%= @subscriptions.where(visible: true).count %></span> abonnement correspond à ta recherche </p>
-    <% end %>
+  <div class="container">
+    <div id="count">
+      <% if @subscriptions.where(visible: true).count == 0 %>
+        <p>Aucun abonnement ne correspond à ta recherche </p>
+      <% elsif @subscriptions.where(visible: true).count > 1 %>
+        <p><span><%= @subscriptions.where(visible: true).count %></span> abonnements correspondent à ta recherche </p>
+      <% else %>
+        <p><span><%= @subscriptions.where(visible: true).count %></span> abonnement correspond à ta recherche </p>
+      <% end %>
+    </div>
   </div>
-</div>
 
-<div class="container">
-<% @subscriptions.each do |subscription| %>
-  <% if subscription.visible == true %>
-    <%= link_to subscription_path(subscription), class: "text-decoration-none text-reset" do  %>
-      <div class="card-subscription d-flex align-items-center justify-content-start ">
-        <div class="picto-subscription">
-          <% case subscription.category %>
-            <% when 'Energie'%>
-              <i class="fas fa-bolt"></i>
-            <% when 'Loisirs'%>
-              <i class="fas fa-biking"></i>
-            <% when 'Telecom'%>
-              <i class="fas fa-mobile-alt"></i>
-            <% when 'Streaming' %>
-              <i class="fas fa-desktop"></i>
-            <% when 'Divers'%>
-              <i class="fas fa-ellipsis-h"></i>
-          <% end %>
-        </div>
-        <div class="card-product-infos">
-          <h2> <%= subscription.alias %> </h2>
-          <div class="price-periodicity d-flex justify-content-between align-items-center">
-            <p id="product-price"><%= subscription.price %>€ <span>/ <%= subscription.periodicity == "Mensuel"  ? "mois" : "an" %></span></p>
-            <% if subscription.status == "expire bientôt" %>
-                <p id="subscription-status-expire"> <%= subscription.status %> </p>
-            <% else %>
-                <p id="subscription-status"> <%= subscription.status %> </p>
+  <div class="container">
+  <% @subscriptions.each do |subscription| %>
+    <% if subscription.visible == true %>
+      <%= link_to subscription_path(subscription), class: "text-decoration-none text-reset" do  %>
+        <div class="card-subscription d-flex align-items-center justify-content-start ">
+          <div class="picto-subscription">
+            <% case subscription.category %>
+              <% when 'Energie'%>
+                <i class="fas fa-bolt"></i>
+              <% when 'Loisirs'%>
+                <i class="fas fa-biking"></i>
+              <% when 'Telecom'%>
+                <i class="fas fa-mobile-alt"></i>
+              <% when 'Streaming' %>
+                <i class="fas fa-desktop"></i>
+              <% when 'Divers'%>
+                <i class="fas fa-ellipsis-h"></i>
             <% end %>
           </div>
+          <div class="card-product-infos">
+            <h2> <%= subscription.alias %> </h2>
+            <div class="price-periodicity d-flex justify-content-between align-items-center">
+              <p id="product-price"><%= subscription.price %>€ <span>/ <%= subscription.periodicity == "Mensuel"  ? "mois" : "an" %></span></p>
+              <% if subscription.status == "expire bientôt" %>
+                  <p id="subscription-status-expire"> <%= subscription.status %> </p>
+              <% else %>
+                  <p id="subscription-status"> <%= subscription.status %> </p>
+              <% end %>
+            </div>
+          </div>
         </div>
-      </div>
+    <% end %>
+    <% end %>
   <% end %>
-  <% end %>
-<% end %>
+  </div>
 </div>
