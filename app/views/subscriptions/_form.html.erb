@@ -6,7 +6,7 @@
     <%= f.input :status, as: :hidden %>
     <%= f.input :price, as: :hidden, input_html:{value: @transaction.amount} %>
     <%= f.input :name, as: :hidden, input_html:{value: @transaction.title, readonly:true} %>
-    <%= f.input :alias, label: "Voulez-vous changer le nom de votre abonnement ?", input_html:{value: @transaction.title} %>
+    <%= f.input :alias, label: "Souhaites-tu changer le nom de ton abonnement ?", input_html:{value: @transaction.title} %>
     <%= f.input :category, label: "Catégorie", collection: ['Energie','Loisirs', 'Streaming', 'Telecom', 'Divers'], required: true %>
     <!-- YES or NO -->
     <!--<%#= f.label "Êtes-vous engagés ?" %>
@@ -15,7 +15,7 @@
     </div> -->
 
      <%= f.input :commitment,
-          label: "Êtes-vous engagés ?",
+          label: "Es-tu engagé ?",
           as: :radio_buttons,
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'category-wrapper',
@@ -28,8 +28,8 @@
       <!-- IF YES -->
     <div id="if-yes" class="d-none">
       <div class="form-wrapper" >
-        <%= f.input :start_date, label: "Date de début de votre abonnement", as: :string, required: true, input_html: {class: "datepicker"} %>
-        <%= f.input :end_date, label: "Date de fin de votre abonnement", as: :string, required: true, input_html: {class: "datepicker"} %>
+        <%= f.input :start_date, label: "Date de début de ton abonnement", as: :string, required: true, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date, label: "Date de fin de ton abonnement", as: :string, required: true, input_html: {class: "datepicker"} %>
       </div>
 
       <div>

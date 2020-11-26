@@ -1,6 +1,5 @@
 <div class="banner-transaction">
-  <h1>Modifier votre abonnement</h1>
-
+  <h1>Modifier ton abonnement</h1>
 </div>
 
 <div class="container center_div">
@@ -8,21 +7,47 @@
   <%= simple_form_for @subscription do |f| %>
     <!-- REVOIR POUR CREER BOUTON TRUE SUR VISIBLE -->
     <%= f.input :visible, as: :hidden, input_html:{value: true}%>
-    <%= f.input :price, label: "Prix", input_html:{value: @subscription.price} %>
-    <%= f.input :name, label: "Votre abonnement", input_html:{value: @subscription.alias, readonly:true} %>
-    <%= f.input :alias, label: "Voulez-vous changer le nom de votre abonnement ?", input_html:{value: @subscription.alias} %>
-
+    <%= f.input :status, as: :hidden %>
+    <%= f.input :price, as: :hidden, input_html:{value: @subscription.price} %>
+    <%= f.input :name, as: :hidden, input_html:{value: @subscription.alias, readonly:true} %>
+    <%= f.input :alias, label: "Souhaites-tu changer le nom de ton abonnement ?", input_html:{value: @transaction.title} %>
+    <%= f.input :category, label: "Catégorie", collection: ['Energie','Loisirs', 'Streaming', 'Telecom', 'Divers'], required: true %>
     <!-- YES or NO -->
-    <%= f.input :commitment, input_html: {class: "yes-or-no"}, as: :radio_buttons, collection: ['Oui','Non'], label: "Êtes-vous engagés ?" %>
+    <!--<%#= f.label "Êtes-vous engagés ?" %>
+    <div class="d-flex">
+      <%#= f.input_field :commitment, class: "yes-or-no", as: :radio_buttons, collection: ['Oui','Non'], label: false %>
+    </div> -->
+
+     <%= f.input :commitment,
+          label: "Es-tu engagé ?",
+          as: :radio_buttons,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'category-wrapper',
+          item_wrapper_class: 'category-item',
+          input_html: {class: 'category-selector yes-or-no'},
+          collection: ['Oui','Non'],
+          required: true %>
+
 
       <!-- IF YES -->
     <div id="if-yes" class="d-none">
       <div class="form-wrapper" >
-        <%= f.input :start_date, label: "Date de début de votre abonnement", as: :string, required: true, input_html: {class: "datepicker"} %>
-        <%= f.input :end_date, label: "Date de fin de votre abonnement", as: :string, required: true, input_html: {class: "datepicker"} %>
+        <%= f.input :start_date, label: "Date de début de ton abonnement", as: :string, required: true, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date, label: "Date de fin de ton abonnement", as: :string, required: true, input_html: {class: "datepicker"} %>
       </div>
 
-      <%= f.input :periodicity, label: "Périodicité", collection: ['Mensuel','Annuel'] %>
+      <div>
+      <%= f.input :periodicity,
+            label: "Périodicité",
+            as: :radio_buttons,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper',
+            item_wrapper_class: 'category-item',
+            input_html: {class: 'category-selector'},
+            collection: ['Mensuel','Annuel'],
+            required: true %>
+      </div>
+
     </div>
 
 
@@ -30,3 +55,8 @@
   <% end %>
 
 </div>
+
+
+
+<!-- en cours ou sans engagement -->
+
