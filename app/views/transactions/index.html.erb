@@ -1,12 +1,15 @@
 <!-- TRANSACTION INDEX BANNER -->
-<div class="banner-transaction">
-  <h1>Nous avons identifié une réccurence des paiements suivants sur votre <span class="action-verb">compte bancaire</span></h1>
+<div class="banner-index d-flex justify-content-center align-items-center">
+  <h1>Paiements récurrents</h1>
 </div>
 
 <!-- CARD TRANSACTION -->
 
   <!-- si @transactions alors cards -->
 <% if @transactions&.any? {|name, transactions| transactions.size > 1 } %>
+  <div id="count">
+    <p>Nous avons identifié une réccurence des paiements suivants sur votre <span class="action-verb">compte bancaire</span></p>
+  </div>
   <div class="container">
     <% @transactions.each do |name, transactions| %>
       <div class="container-transaction">
