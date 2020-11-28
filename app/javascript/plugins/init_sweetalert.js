@@ -18,7 +18,7 @@ const initSweetalert = () => {
   swalButton.forEach((button) => {
 
     swalInstance(button, {
-      title: "Voulez-vous vraiment supprimer cette transaction ?",
+      title: "Souhaites-tu supprimer cette transaction ?",
       // text: "Toute suppression est définitive",
       // icon: "warning",
       buttons: ["Surtout pas !", "Oui, ouste !"],

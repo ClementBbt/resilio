@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get '/banques', to: 'pages#banques'
 
-  resources :subscriptions, only: [ :new, :create, :index, :show, :edit ] do
+  resources :subscriptions, only: [ :new, :create, :index, :show, :edit, :update ] do
     member do
       get "/resiliation" , to: "subscriptions#resiliation"
       # route pour les transactions d'une subscription

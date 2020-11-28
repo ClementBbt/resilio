@@ -8,7 +8,7 @@
   <!-- si @transactions alors cards -->
 <% if @transactions&.any? {|name, transactions| transactions.size > 1 } %>
   <div id="count">
-    <p>Nous avons identifié une récurrence des paiements suivants sur votre <span class="action-verb">compte bancaire</span></p>
+    <p>Nous avons identifié une récurrence des paiements suivants sur ton <span class="action-verb">compte bancaire</span></p>
   </div>
   <div class="container">
     <% @transactions.each do |name, transactions| %>
@@ -61,7 +61,7 @@
   <div class= "container">
     <div class="max-size-container d-flex flex-column justify-content-center">
         <div class="home-box d-flex animation align-items-center justify-content-center flex-column">
-          <p><span class="action-verb">Vous êtes à jour !</span></p>
+          <p><span class="action-verb">Tu es à jour !</span></p>
           <p >Il n'y a plus de transaction à classer</p>
         </div>
     </div>

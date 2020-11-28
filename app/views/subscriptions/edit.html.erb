@@ -10,7 +10,7 @@
     <%= f.input :status, as: :hidden %>
     <%= f.input :price, as: :hidden, input_html:{value: @subscription.price} %>
     <%= f.input :name, as: :hidden, input_html:{value: @subscription.alias, readonly:true} %>
-    <%= f.input :alias, label: "Souhaites-tu changer le nom de ton abonnement ?", input_html:{value: @transaction.title} %>
+    <%= f.input :alias, label: "Nom de ton abonnement", input_html:{value: @subscription.alias} %>
     <%= f.input :category, label: "Catégorie", collection: ['Energie','Loisirs', 'Streaming', 'Telecom', 'Divers'], required: true %>
     <!-- YES or NO -->
     <!--<%#= f.label "Êtes-vous engagés ?" %>
