@@ -7,8 +7,10 @@
 
   <!-- si @transactions alors cards -->
 <% if @transactions&.any? {|name, transactions| transactions.size > 1 } %>
-  <div id="count">
-    <p>Nous avons identifié une récurrence des paiements suivants sur ton <span class="action-verb">compte bancaire</span></p>
+  <div class="container">
+    <div id="subtitle">
+      <p>Nous avons identifié une récurrence des paiements suivants sur ton <span class="action-verb">compte bancaire</span></p>
+    </div>
   </div>
   <div class="container">
     <% @transactions.each do |name, transactions| %>

@@ -27,7 +27,7 @@ class SubscriptionsController < ApplicationController
     if @subscription.save && @subscription.visible
       redirect_to subscriptions_path
     elsif @subscription.save
-      redirect_to transactions_path, notice:"Transaction supprimée"
+      redirect_to transactions_path
     else
       render 'new'
     end
