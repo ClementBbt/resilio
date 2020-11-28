@@ -34,9 +34,10 @@
   padding: 10px 0px;
 }
 
-a:hover.dropdown-item {
-  background-color: #381DF0;
-  color: #fff;
+.dropdown-item:hover {
+  color: #381DF0;
+  background-color: #e5e5e5;
+  font-weight: bold;
 }
 
 
