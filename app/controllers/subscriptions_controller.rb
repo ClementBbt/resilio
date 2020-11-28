@@ -37,6 +37,10 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.find(params[:id])
   end
 
+  def update
+    @subscription = Subscription.update(subscription_params)
+    redirect_to subscription_path(@subscription)
+  end
 
   def show
     @subscription = Subscription.find(params[:id])

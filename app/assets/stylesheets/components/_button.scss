@@ -8,6 +8,11 @@
   margin-bottom: 20px;
 }
 
+.button-new-subscription:hover {
+  background-color: #381DF0;
+  color: #FFFFFF;
+}
+
 
 // radio buttons
 
@@ -46,4 +51,17 @@
   color: white;
   background-color: #24B2AA!important;
   //border: 1px solid #24B2AA;
+}
+
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+    color: #495057;
+}
+
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label:hover {
+    color: #fff;
+}
+
+.nav-link {
+    display: none;
+    padding: 0.5rem 1rem;
 }

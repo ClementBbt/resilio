@@ -19,7 +19,7 @@
           <i class="far fa-user dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Mon profil", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Ajouter un compte bancaire", "#", class: "dropdown-item" %>
+            <%= link_to "Ajouter un compte bancaire", banques_path, class: "dropdown-item" %>
             <%= link_to "Me déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </div>
