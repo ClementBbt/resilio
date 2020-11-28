@@ -35,7 +35,7 @@
     <% end %>
     <%= link_to subscriptions_path(search: "resiliation"), class: "home-link" do %>
       <div id="box-three" class="home-box <%= "animation" if @animation %> d-flex align-items-center justify-content-center">
-        <p><span class="action-verb">Résiliations</span> en cours</p>
+        <p><span class="action-verb">Résiliations</span> en cours   <span class="notifications">  <%= Subscription.where(status: "résiliation en cours").count %></span></p>
       </div>
     <% end %>
 </div>
