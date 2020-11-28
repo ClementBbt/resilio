@@ -7,7 +7,7 @@ const dateToggle = () => {
         document.querySelector("#subscription_status").value = "en cours"
       } else {
         document.querySelector("#if-yes").classList.add("d-none")
-        document.querySelector("#subscription_status").value = "sans engagement"
+        document.querySelector("#subscription_status").value = "en cours"
       }
     })
   })
